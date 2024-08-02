@@ -1,11 +1,13 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixin
-        System.out.printf("Hello world! 2222");
+        //System.out.println("Hello world!");
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
+        HelloWorld hello = (HelloWorld) applicationContext.getBean("helloBean");
+
+        System.out.println(hello.toString());
     }
 }
